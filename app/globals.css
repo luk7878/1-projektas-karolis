@@ -1,11 +1,11 @@
 
 :root {
-  --ink: #11110f;
-  --paper: #f2f0e8;
-  --lime: #c8ff3d;
-  --blue: #e8673f;
-  --coral: #ff9a72;
-  --yellow: #ffd43d;
+  --ink: #201e1c;
+  --paper: #f6f1e9;
+  --lime: #f3c65d;
+  --blue: #b74427;
+  --coral: #e97b52;
+  --yellow: #ffda8a;
 }
 * {
   box-sizing: border-box;
@@ -499,7 +499,7 @@ img {
 .opportunity-copy > p {
   max-width: 500px;
   line-height: 1.55;
-  color: #e6e8ff;
+  color: #fff0e8;
 }
 .button-coral {
   background: var(--coral);
@@ -1141,7 +1141,7 @@ footer {
   font-size: 1.25rem;
   line-height: 1.5;
   max-width: 700px;
-  color: #e7e9ff;
+  color: #fff0e8;
 }
 .project-facts {
   display: grid;
@@ -1159,7 +1159,7 @@ footer {
 .project-facts small {
   font: 600 0.58rem var(--font-mono);
   letter-spacing: 0.08em;
-  color: #c8cdff;
+  color: #ffd2c0;
 }
 .project-facts strong {
   font-size: 0.88rem;
@@ -1614,8 +1614,8 @@ footer {
   flex: 0 0 auto;
 }
 .status-dot.published {
-  background: #76b900;
-  box-shadow: 0 0 0 3px #dff3b3;
+  background: #7b8f42;
+  box-shadow: 0 0 0 3px #e4e8c8;
 }
 .studio-workspace {
   grid-row: 2;
@@ -1738,7 +1738,7 @@ footer {
 .studio-input input:focus,
 .studio-input textarea:focus {
   border-color: var(--blue);
-  box-shadow: 0 0 0 3px #e5e8ff;
+  box-shadow: 0 0 0 3px #f7d8cb;
   background: #fff;
 }
 .studio-input textarea {
@@ -1966,7 +1966,7 @@ footer {
   flex-direction: column;
 }
 .contact-intro .section-label {
-  color: var(--lime);
+  color: #fff;
 }
 .contact-intro h1 {
   font-size: clamp(3.5rem, 6vw, 7.5rem);
@@ -1977,7 +1977,7 @@ footer {
 .contact-intro h1 em {
   font-family: Georgia, serif;
   font-weight: 400;
-  color: var(--lime);
+  color: var(--yellow);
 }
 .contact-intro > p {
   max-width: 580px;
@@ -1993,7 +1993,7 @@ footer {
   font: 700 0.72rem var(--font-mono);
 }
 .contact-direct a {
-  color: var(--lime);
+  color: #fff;
 }
 .contact-form-wrap {
   display: grid;
@@ -2043,7 +2043,7 @@ footer {
 .contact-form-wrap select:focus,
 .contact-form-wrap textarea:focus {
   border-color: var(--blue);
-  box-shadow: 0 0 0 3px #dcdfff;
+  box-shadow: 0 0 0 3px #f7d8cb;
 }
 .contact-form-wrap textarea {
   min-height: 150px;
@@ -2068,7 +2068,7 @@ footer {
 }
 .contact-form-wrap small {
   display: block;
-  color: #777;
+  color: #66625d;
   line-height: 1.4;
   margin-top: 14px;
 }
@@ -2169,12 +2169,12 @@ footer {
   cursor: pointer;
 }
 .inbox-list > button.active {
-  background: #e9ebff;
+  background: #fff0e9;
   border-left: 4px solid var(--blue);
   padding-left: 14px;
 }
 .inbox-list > button.unread {
-  background: #f5f7e6;
+  background: #fff7df;
 }
 .inbox-list > button > div {
   display: flex;
@@ -2223,7 +2223,7 @@ footer {
   background: var(--lime);
 }
 .reader-kicker .status-replied {
-  background: #cbe9ff;
+  background: #f8ddcf;
 }
 .inbox-reader h1 {
   font-size: clamp(2.5rem, 5vw, 5rem);
@@ -2456,7 +2456,7 @@ footer {
   margin-top: 80px;
 }
 .team-grid article {
-  background: #bd4527;
+  background: #96391f;
   padding: 45px;
   min-height: 520px;
 }
@@ -2488,7 +2488,7 @@ footer {
 .team-grid p {
   line-height: 1.7;
   max-width: 580px;
-  color: #d9d9ef;
+  color: #f4ddd3;
 }
 .portfolio-section {
   padding: 9vw 7vw;
