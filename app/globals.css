@@ -159,7 +159,7 @@ img {
 }
 .hero h1 em,
 .cta h2 em {
-  color: var(--lime);
+  color: var(--coral);
   font-family: Georgia, serif;
   font-weight: 400;
 }
@@ -193,8 +193,8 @@ img {
   box-shadow: 6px 6px 0 rgba(255, 255, 255, 0.18);
 }
 .button-dark {
-  color: var(--ink);
-  background: var(--lime);
+  color: #fff;
+  background: var(--blue);
 }
 .text-link {
   font-size: 0.82rem;
@@ -279,8 +279,8 @@ img {
   left: 0;
   right: 0;
   height: 52px;
-  background: var(--lime);
-  color: var(--ink);
+  background: var(--blue);
+  color: #fff;
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -381,7 +381,7 @@ img {
   margin: 20px 0 0;
 }
 .topics h2 i {
-  color: var(--lime);
+  color: var(--coral);
 }
 .topics-head > p {
   color: #aaa;
@@ -472,7 +472,8 @@ img {
   position: absolute;
   top: 30px;
   left: 30px;
-  background: var(--lime);
+  background: var(--blue);
+  color: #fff;
   padding: 10px 14px;
   font: 700 0.65rem var(--font-mono);
   transform: rotate(-3deg);
@@ -492,7 +493,7 @@ img {
   margin: 25px 0;
 }
 .opportunity h2 em {
-  color: var(--lime);
+  color: var(--yellow);
   font-family: Georgia, serif;
   font-weight: 400;
 }
@@ -502,7 +503,7 @@ img {
   color: #fff0e8;
 }
 .button-coral {
-  background: var(--coral);
+  background: var(--paper);
   color: var(--ink);
   margin-top: 25px;
 }
@@ -568,7 +569,8 @@ img {
   letter-spacing: 0.08em;
 }
 .news-meta span {
-  background: var(--lime);
+  background: var(--blue);
+  color: #fff;
   padding: 5px 7px;
 }
 .news-card h3 {
@@ -586,7 +588,8 @@ img {
 }
 .cta {
   min-height: 650px;
-  background: var(--coral);
+  background: var(--blue);
+  color: #fff;
   position: relative;
   overflow: hidden;
   padding: 100px 5vw;
@@ -620,7 +623,7 @@ img {
   z-index: 1;
 }
 .cta h2 em {
-  color: var(--ink);
+  color: var(--yellow);
 }
 .cta p {
   max-width: 530px;
