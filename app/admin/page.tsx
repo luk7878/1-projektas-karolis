@@ -250,7 +250,7 @@ export default function AdminPage() {
           placeholder={placeholder}
           value={String(form[key] || "")}
           onChange={(e) => set(key, e.target.value)}
-          onBlur={() =>
+          onBlur={(e) =>
             key === `title_${lang}` &&
             !form.slug &&
             set("slug", slugify(e.target.value))
