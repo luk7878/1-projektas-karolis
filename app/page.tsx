@@ -88,9 +88,52 @@ const news = [
   },
 ];
 
+const events = {
+  lt: [
+    {
+      date: "2026 RUDUO",
+      format: "GYVAI · KAUNAS",
+      title: "Kaip atpažinti melagingą informaciją?",
+      text: "Atviros praktinės dirbtuvės jaunimui apie faktų tikrinimą, šaltinių patikimumą ir sąmoningą elgesį internete.",
+    },
+    {
+      date: "DATA DERINAMA",
+      format: "NUOTOLIU",
+      title: "Geras klausimas – pokalbio pradžia",
+      text: "Trumpas interaktyvus susitikimas apie kritinį mąstymą, argumentus ir pagarbų dialogą sudėtingomis temomis.",
+    },
+    {
+      date: "REGISTRACIJA NETRUKUS",
+      format: "TARPTAUTINIS",
+      title: "Jaunimo mainų informacinis vakaras",
+      text: "Pristatysime artimiausias tarptautines galimybes, dalyvių patirtis ir atsakysime į praktinius klausimus.",
+    },
+  ],
+  en: [
+    {
+      date: "AUTUMN 2026",
+      format: "IN PERSON · KAUNAS",
+      title: "How to recognise misleading information?",
+      text: "An open practical workshop for young people on fact-checking, reliable sources and mindful online behaviour.",
+    },
+    {
+      date: "DATE TO BE ANNOUNCED",
+      format: "ONLINE",
+      title: "A good question starts a conversation",
+      text: "A short interactive session on critical thinking, arguments and respectful dialogue around difficult topics.",
+    },
+    {
+      date: "REGISTRATION SOON",
+      format: "INTERNATIONAL",
+      title: "Youth exchange information evening",
+      text: "We will introduce upcoming international opportunities, share participant stories and answer practical questions.",
+    },
+  ],
+};
+
 const copy = {
   lt: {
-    nav: ["Veiklos kryptys", "Tarptautinė veikla", "Projektai", "Apie mus"],
+    nav: ["Veiklos kryptys", "Renginiai", "Vykdomi projektai", "Apie mus"],
     join: "Prisijunk",
     ariaNav: "Pagrindinė navigacija",
     change: "Change to English",
@@ -133,6 +176,20 @@ const copy = {
     projB: "kurie augina.",
     propose: "Siūlyti partnerystę",
     read: "Skaityti",
+    eventsLabel: "[ SUSITIKIME ]",
+    eventsA: "Artimiausi",
+    eventsB: "renginiai.",
+    eventsP: "Dirbtuvės, diskusijos ir atviri susitikimai smalsiems žmonėms. Sekite naujienas – renginių informaciją nuolat papildome.",
+    eventAction: "Domina renginys",
+    ongoing: "[ VYKDOMA DABAR ]",
+    joinLabel: "[ KAIP PRISIDĖTI ]",
+    joinA: "Tavo smalsumas",
+    joinB: "gali veikti.",
+    joinWays: [
+      ["Dalyvauk", "Ateik į renginį, dirbtuves ar jaunimo mainus."],
+      ["Savanoriauk", "Prisidėk idėjomis, komunikacija ar renginių organizavimu."],
+      ["Bendradarbiauk", "Pakviesk mus į mokyklą, organizaciją ar tarptautinį projektą."],
+    ],
     now: "[ DABAR TU ]",
     ctaA: "Turi gerą",
     ctaB: "klausimą?",
@@ -148,7 +205,7 @@ const copy = {
     alt2: "Jauni žmonės dalyvauja bendruomenės iniciatyvoje",
   },
   en: {
-    nav: ["What we do", "International work", "Projects", "About us"],
+    nav: ["What we do", "Events", "Current projects", "About us"],
     join: "Join us",
     ariaNav: "Main navigation",
     change: "Keisti į lietuvių kalbą",
@@ -191,6 +248,20 @@ const copy = {
     projB: "that help us grow.",
     propose: "Propose a partnership",
     read: "Read",
+    eventsLabel: "[ LET'S MEET ]",
+    eventsA: "Upcoming",
+    eventsB: "events.",
+    eventsP: "Workshops, discussions and open meet-ups for curious people. Follow our updates as new event details are added regularly.",
+    eventAction: "I'm interested",
+    ongoing: "[ HAPPENING NOW ]",
+    joinLabel: "[ HOW TO JOIN ]",
+    joinA: "Put your curiosity",
+    joinB: "into action.",
+    joinWays: [
+      ["Participate", "Join an event, workshop or international youth exchange."],
+      ["Volunteer", "Contribute ideas, communication skills or help organise activities."],
+      ["Collaborate", "Invite us to a school, organisation or international project."],
+    ],
     now: "[ NOW IT'S YOU ]",
     ctaA: "Have a good",
     ctaB: "question?",
@@ -241,7 +312,7 @@ export default function Home() {
         </a>
         <nav className="desktop-nav" aria-label={t.ariaNav}>
           <a href="#veikla">{t.nav[0]}</a>
-          <a href="#galimybes">{t.nav[1]}</a>
+          <a href="#renginiai">{t.nav[1]}</a>
           <a href="#naujienos">{t.nav[2]}</a>
           <a href="/apie-mus">{t.nav[3]}</a>
         </nav>
@@ -423,10 +494,38 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="events" id="renginiai">
+        <div className="events-heading">
+          <div className="section-label">{t.eventsLabel}</div>
+          <h2>
+            {t.eventsA} <em>{t.eventsB}</em>
+          </h2>
+          <p>{t.eventsP}</p>
+        </div>
+        <div className="event-list">
+          {events[language].map((event, index) => (
+            <article className="event-row" key={event.title}>
+              <span className="event-number">0{index + 1}</span>
+              <div className="event-date">
+                <strong>{event.date}</strong>
+                <small>{event.format}</small>
+              </div>
+              <div className="event-copy">
+                <h3>{event.title}</h3>
+                <p>{event.text}</p>
+              </div>
+              <a href="/kontaktai" aria-label={`${t.eventAction}: ${event.title}`}>
+                {t.eventAction} <span>↗</span>
+              </a>
+            </article>
+          ))}
+        </div>
+      </section>
+
       <section className="news" id="naujienos">
         <div className="news-head">
           <div>
-            <div className="section-label">{t.exp}</div>
+            <div className="section-label">{t.ongoing}</div>
             <h2>
               {t.projA}
               <br />
@@ -459,6 +558,26 @@ export default function Home() {
                 {t.read} <span>↗</span>
               </a>
             </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="join-paths">
+        <div className="join-paths-head">
+          <div className="section-label">{t.joinLabel}</div>
+          <h2>
+            {t.joinA}<br />
+            <em>{t.joinB}</em>
+          </h2>
+        </div>
+        <div className="join-paths-grid">
+          {t.joinWays.map(([title, text], index) => (
+            <a href="/kontaktai" key={title}>
+              <span>0{index + 1}</span>
+              <h3>{title}</h3>
+              <p>{text}</p>
+              <b>↗</b>
+            </a>
           ))}
         </div>
       </section>

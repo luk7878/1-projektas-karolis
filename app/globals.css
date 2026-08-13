@@ -519,6 +519,94 @@ img {
   padding: 8px 12px;
   font-size: 0.65rem;
 }
+.events {
+  padding: 120px 4vw 130px;
+  background: var(--paper);
+}
+.events-heading {
+  display: grid;
+  grid-template-columns: 0.45fr 1.15fr 0.7fr;
+  gap: 5vw;
+  align-items: end;
+  margin-bottom: 65px;
+}
+.events-heading h2,
+.join-paths h2 {
+  margin: 0;
+  font-size: clamp(3.8rem, 7vw, 7.5rem);
+  line-height: 0.84;
+  letter-spacing: -0.075em;
+}
+.events-heading h2 em,
+.join-paths h2 em {
+  color: var(--blue);
+  font-family: Georgia, serif;
+  font-weight: 400;
+}
+.events-heading > p {
+  margin: 0;
+  max-width: 430px;
+  line-height: 1.6;
+}
+.event-list {
+  border-top: 2px solid var(--ink);
+}
+.event-row {
+  display: grid;
+  grid-template-columns: 70px 190px minmax(280px, 1fr) 155px;
+  gap: 30px;
+  align-items: center;
+  padding: 32px 0;
+  border-bottom: 1px solid rgba(32, 30, 28, 0.35);
+  transition: padding 0.2s, background 0.2s;
+}
+.event-row:hover {
+  background: #fff0e9;
+  padding-left: 18px;
+  padding-right: 18px;
+}
+.event-number,
+.event-date,
+.event-row > a {
+  font-family: var(--font-mono), monospace;
+}
+.event-number {
+  color: var(--blue);
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+.event-date {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.event-date strong {
+  font-size: 0.76rem;
+}
+.event-date small {
+  color: #69645f;
+  font-size: 0.58rem;
+  letter-spacing: 0.08em;
+}
+.event-copy h3 {
+  margin: 0 0 8px;
+  font-size: clamp(1.45rem, 2.3vw, 2.25rem);
+  letter-spacing: -0.045em;
+}
+.event-copy p {
+  max-width: 680px;
+  margin: 0;
+  color: #5d5853;
+  line-height: 1.5;
+  font-size: 0.9rem;
+}
+.event-row > a {
+  justify-self: end;
+  border-bottom: 1px solid;
+  padding-bottom: 7px;
+  font-size: 0.65rem;
+  font-weight: 800;
+}
 .news {
   padding: 130px 4vw;
 }
@@ -585,6 +673,56 @@ img {
 .read-more {
   font-size: 0.72rem;
   font-weight: 700;
+}
+.join-paths {
+  padding: 120px 4vw;
+  background: var(--ink);
+  color: #fff;
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 8vw;
+}
+.join-paths-head .section-label {
+  color: #aaa;
+  margin-bottom: 35px;
+}
+.join-paths h2 em {
+  color: var(--coral);
+}
+.join-paths-grid {
+  border-top: 1px solid rgba(255, 255, 255, 0.45);
+}
+.join-paths-grid > a {
+  position: relative;
+  display: grid;
+  grid-template-columns: 55px 0.7fr 1fr 35px;
+  gap: 20px;
+  align-items: center;
+  padding: 30px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.28);
+  transition: color 0.2s, padding 0.2s;
+}
+.join-paths-grid > a:hover {
+  color: var(--yellow);
+  padding-left: 12px;
+}
+.join-paths-grid span {
+  font: 800 0.65rem var(--font-mono);
+  color: var(--coral);
+}
+.join-paths-grid h3 {
+  margin: 0;
+  font-size: 1.55rem;
+  letter-spacing: -0.04em;
+}
+.join-paths-grid p {
+  margin: 0;
+  color: #c9c4bf;
+  font-size: 0.86rem;
+  line-height: 1.5;
+}
+.join-paths-grid b {
+  justify-self: end;
 }
 .cta {
   min-height: 650px;
@@ -744,6 +882,20 @@ footer {
   .news-1 .news-image {
     height: 420px;
   }
+  .events-heading,
+  .join-paths {
+    grid-template-columns: 1fr;
+  }
+  .events-heading {
+    align-items: start;
+  }
+  .event-row {
+    grid-template-columns: 55px 160px 1fr;
+  }
+  .event-row > a {
+    grid-column: 3;
+    justify-self: start;
+  }
 }
 @media (max-width: 600px) {
   .brand-name,
@@ -757,6 +909,42 @@ footer {
   }
   .hero h1 {
     font-size: 4.15rem;
+  }
+  .events,
+  .join-paths {
+    padding: 85px 20px;
+  }
+  .events-heading {
+    gap: 25px;
+    margin-bottom: 45px;
+  }
+  .events-heading h2,
+  .join-paths h2 {
+    font-size: 3.6rem;
+  }
+  .event-row {
+    grid-template-columns: 42px 1fr;
+    gap: 18px;
+    padding: 27px 0;
+  }
+  .event-date,
+  .event-copy,
+  .event-row > a {
+    grid-column: 2;
+  }
+  .event-copy h3 {
+    font-size: 1.55rem;
+  }
+  .event-row:hover {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .join-paths-grid > a {
+    grid-template-columns: 38px 1fr 28px;
+    gap: 14px;
+  }
+  .join-paths-grid p {
+    grid-column: 2 / 4;
   }
   .hero-copy > p {
     font-size: 0.95rem;
