@@ -1,6 +1,8 @@
 "use client";
 import { FormEvent, useEffect, useState } from "react";
 import { supabase } from "../../lib/supabase";
+import SiteHeader from "../../components/SiteHeader";
+import SiteFooter from "../../components/SiteFooter";
 export default function ContactPage() {
   const [lang, setLang] = useState<"lt" | "en">("lt"),
     [sent, setSent] = useState(false),
@@ -40,16 +42,7 @@ export default function ContactPage() {
   };
   return (
     <main className="contact-page">
-      <header className="content-nav">
-        <a className="brand" href="/">
-          <span className="brand-mark">S?</span>
-          <span className="brand-name">SKEPTIC YOUTH</span>
-        </a>
-        <div>
-          <a href="/">← {lt ? "Pradžia" : "Home"}</a>
-          <button onClick={toggle}>{lang.toUpperCase()} ⇄</button>
-        </div>
-      </header>
+      <SiteHeader language={lang} onLanguageChange={setLang} />
       <section className="contact-layout">
         <div className="contact-intro">
           <div className="section-label">
@@ -204,6 +197,7 @@ export default function ContactPage() {
           )}
         </div>
       </section>
+      <SiteFooter language={lang} />
     </main>
   );
 }

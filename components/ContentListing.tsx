@@ -1,6 +1,8 @@
 "use client";
 import { useEffect, useState } from "react";
 import { supabase } from "../lib/supabase";
+import SiteHeader from "./SiteHeader";
+import SiteFooter from "./SiteFooter";
 export default function ContentListing({
   kind,
 }: {
@@ -31,16 +33,7 @@ export default function ContentListing({
     };
   return (
     <main className="listing-page">
-      <header className="content-nav">
-        <a className="brand" href="/">
-          <span className="brand-mark">S?</span>
-          <span className="brand-name">SKEPTIC YOUTH</span>
-        </a>
-        <div>
-          <a href="/">← {lt ? "Pradžia" : "Home"}</a>
-          <button onClick={toggle}>{language.toUpperCase()} ⇄</button>
-        </div>
-      </header>
+      <SiteHeader language={language} onLanguageChange={setLanguage} />
       <section className="listing-intro">
         <div className="section-label">
           [{" "}
@@ -110,6 +103,7 @@ export default function ContentListing({
           ))
         )}
       </section>
+      <SiteFooter language={language} />
     </main>
   );
 }

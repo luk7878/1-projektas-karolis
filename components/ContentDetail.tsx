@@ -4,6 +4,8 @@ import { useParams, useSearchParams } from "next/navigation";
 import { supabase } from "../lib/supabase";
 import MarkdownContent from "./MarkdownContent";
 import PageTracker from "./PageTracker";
+import SiteHeader from "./SiteHeader";
+import SiteFooter from "./SiteFooter";
 type Kind = "articles" | "projects";
 type Row = Record<string, string | boolean | null>;
 export default function ContentDetail({ kind }: { kind: Kind }) {
@@ -77,25 +79,7 @@ export default function ContentDetail({ kind }: { kind: Kind }) {
       <PageTracker
         path={`/${project ? "projektai" : "straipsniai"}/${String(item.slug || params.slug)}`}
       />
-      <header className="content-nav">
-        <a className="brand" href="/">
-          <span className="brand-mark">S?</span>
-          <span className="brand-name">SKEPTIC YOUTH</span>
-        </a>
-        <div>
-          <a href={project ? "/projektai" : "/straipsniai"}>
-            ←{" "}
-            {project
-              ? lt
-                ? "Visi projektai"
-                : "All projects"
-              : lt
-                ? "Visi straipsniai"
-                : "All articles"}
-          </a>
-          <button onClick={toggle}>{language.toUpperCase()} ⇄</button>
-        </div>
-      </header>
+      <SiteHeader language={language} onLanguageChange={setLanguage} />
       <article>
         <section className="content-hero">
           <div className="content-kicker">
@@ -259,13 +243,7 @@ export default function ContentDetail({ kind }: { kind: Kind }) {
           </a>
         </section>
       </article>
-      <footer className="content-footer">
-        <span>
-          © 2026{" "}
-          {lt ? "Lietuvos skeptiškas jaunimas" : "Lithuanian Skeptic Youth"}
-        </span>
-        <a href="/">{lt ? "Pradžia" : "Home"} ↑</a>
-      </footer>
+      <SiteFooter language={language} />
     </main>
   );
 }

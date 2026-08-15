@@ -3,6 +3,8 @@
 import { useEffect, useState } from "react";
 import { supabase } from "../lib/supabase";
 import PageTracker from "../components/PageTracker";
+import SiteFooter from "../components/SiteFooter";
+import SiteHeader from "../components/SiteHeader";
 
 type Language = "lt" | "en";
 
@@ -305,30 +307,7 @@ export default function Home() {
   return (
     <main>
       <PageTracker path="/" />
-      <header className="topbar">
-        <a className="brand" href="#top" aria-label="Skeptic Youth – home">
-          <span className="brand-mark">S?</span>
-          <span className="brand-name">SKEPTIC YOUTH</span>
-        </a>
-        <nav className="desktop-nav" aria-label={t.ariaNav}>
-          <a href="#veikla">{t.nav[0]}</a>
-          <a href="#renginiai">{t.nav[1]}</a>
-          <a href="#naujienos">{t.nav[2]}</a>
-          <a href="/apie-mus">{t.nav[3]}</a>
-        </nav>
-        <div className="nav-actions">
-          <button
-            className="language"
-            aria-label={t.change}
-            onClick={changeLanguage}
-          >
-            {language.toUpperCase()} <span>⇄</span>
-          </button>
-          <a className="join-small" href="#prisijunk">
-            {t.join} <span>↗</span>
-          </a>
-        </div>
-      </header>
+      <SiteHeader language={language} onLanguageChange={setLanguage} overlay />
 
       <section className="hero" id="top">
         <div className="hero-copy">
@@ -600,36 +579,7 @@ export default function Home() {
         <div className="cta-ring">{t.ring}</div>
       </section>
 
-      <footer>
-        <div className="footer-brand">
-          <span className="brand-mark">S?</span>
-          <span>SKEPTIC YOUTH</span>
-        </div>
-        <div className="footer-col">
-          <strong>{t.contacts}</strong>
-          <a href="/kontaktai">
-            {language === "lt" ? "Kontaktų forma" : "Contact form"} ↗
-          </a>
-          <a href="mailto:ngoskepticyouth@gmail.com">
-            ngoskepticyouth@gmail.com
-          </a>
-          <span>Papilio g. 9, Kaunas</span>
-          <span>+370 633 33887</span>
-        </div>
-        <div className="footer-col">
-          <strong>{t.links}</strong>
-          <a href="/apie-mus">{t.nav[3]} ↗</a>
-          <a href="https://www.facebook.com/skeptiskas.jaunimas/">Facebook ↗</a>
-          <a href="/privatumas">
-            {language === "lt" ? "Privatumas" : "Privacy"}
-          </a>
-          <a href="/slapukai">{language === "lt" ? "Slapukai" : "Cookies"}</a>
-        </div>
-        <div className="footer-bottom">
-          <span>© 2026 {t.copyright}</span>
-          <a href="#top">{t.back} ↑</a>
-        </div>
-      </footer>
+      <SiteFooter language={language} />
     </main>
   );
 }

@@ -1,13 +1,10 @@
+import SiteHeader from "../../components/SiteHeader";
+import SiteFooter from "../../components/SiteFooter";
+
 export default function CookiesPage() {
   return (
     <main className="legal-page">
-      <header className="content-nav">
-        <a className="brand" href="/">
-          <span className="brand-mark">S?</span>
-          <span className="brand-name">SKEPTIC YOUTH</span>
-        </a>
-        <a href="/">← Pradžia</a>
-      </header>
+      <SiteHeader />
       <article>
         <div className="section-label">[ SKAIDRUMAS ]</div>
         <h1>Slapukų informacija</h1>
@@ -41,6 +38,7 @@ export default function CookiesPage() {
           .
         </p>
       </article>
+      <SiteFooter />
     </main>
   );
 }

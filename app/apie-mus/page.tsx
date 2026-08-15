@@ -3,6 +3,8 @@
 import { useEffect, useState } from "react";
 import { supabase } from "../../lib/supabase";
 import PageTracker from "../../components/PageTracker";
+import SiteHeader from "../../components/SiteHeader";
+import SiteFooter from "../../components/SiteFooter";
 
 const team = [
   {
@@ -72,16 +74,7 @@ export default function AboutPage() {
   return (
     <main className="about-page">
       <PageTracker path="/apie-mus" />
-      <header className="content-nav">
-        <a className="brand" href="/">
-          <span className="brand-mark">S?</span>
-          <span className="brand-name">SKEPTIC YOUTH</span>
-        </a>
-        <div>
-          <a href="/">← {lt ? "Pradžia" : "Home"}</a>
-          <button onClick={toggle}>{lang.toUpperCase()} ⇄</button>
-        </div>
-      </header>
+      <SiteHeader language={lang} onLanguageChange={setLang} />
       <section className="about-hero">
         <div className="section-label light">
           [ {lt ? "APIE MUS" : "ABOUT US"} ]
@@ -255,6 +248,7 @@ export default function AboutPage() {
           {lt ? "Siūlyti partnerystę" : "Propose a partnership"} ↗
         </a>
       </section>
+      <SiteFooter language={lang} />
     </main>
   );
 }

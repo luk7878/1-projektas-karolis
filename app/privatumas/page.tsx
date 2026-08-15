@@ -1,13 +1,10 @@
+import SiteHeader from "../../components/SiteHeader";
+import SiteFooter from "../../components/SiteFooter";
+
 export default function PrivacyPage() {
   return (
     <main className="legal-page">
-      <header className="content-nav">
-        <a className="brand" href="/">
-          <span className="brand-mark">S?</span>
-          <span className="brand-name">SKEPTIC YOUTH</span>
-        </a>
-        <a href="/">← Pradžia</a>
-      </header>
+      <SiteHeader />
       <article>
         <div className="section-label">[ ATNAUJINTA 2026-08-12 ]</div>
         <h1>Privatumo politika</h1>
@@ -61,6 +58,7 @@ export default function PrivacyPage() {
           Atnaujinę šią politiką, šiame puslapyje pakeisime atnaujinimo datą.
         </p>
       </article>
+      <SiteFooter />
     </main>
   );
 }
