@@ -6,30 +6,6 @@ import PageTracker from "../../components/PageTracker";
 import SiteHeader from "../../components/SiteHeader";
 import SiteFooter from "../../components/SiteFooter";
 
-const team = [
-  {
-    initials: "TM",
-    name: "Tomas Michejevas",
-    role: {
-      lt: "Prezidentas, treneris ir fasilitatorius",
-      en: "President, trainer and facilitator",
-    },
-    text: {
-      lt: "Daugiau nei dešimtmetį dirba su savanoryste, komandomis ir jaunimo iniciatyvomis. Erasmus+ neformaliojo ugdymo veiklose dalyvauja nuo 2017 m., koordinuoja tarptautinius projektus ir jungia analitinį mąstymą su praktine lyderyste.",
-      en: "Works with volunteering, teams and youth initiatives for over a decade. Active in Erasmus+ non-formal education since 2017, he coordinates international projects and combines analytical thinking with practical leadership.",
-    },
-  },
-  {
-    initials: "LK",
-    name: "Laurynas Kavaliauskas",
-    role: { lt: "Projektų vadovas", en: "Project manager" },
-    text: {
-      lt: "Projektų vykdytojas, turintis vadybos, darbo su jaunimu ir bendruomeninių renginių patirties. Organizuoja jaunimo mainus, kritinio mąstymo veiklas ir reguliarius „Skeptics in the Pub“ susitikimus.",
-      en: "Project practitioner with experience in management, youth work and community events. He organises youth exchanges, critical-thinking activities and regular Skeptics in the Pub gatherings.",
-    },
-  },
-];
-
 const portfolio = [
   ["2018", "Critical Thinking and Defeasibility", "Erasmus+ KA152"],
   ["2021", "Sardegnagol", "Erasmus+ KA210"],
@@ -42,35 +18,23 @@ const portfolio = [
 
 export default function AboutPage() {
   const [lang, setLang] = useState<"lt" | "en">("lt");
-  const [liveTeam, setLiveTeam] = useState<Record<string, string>[]>([]),
-    [livePartners, setLivePartners] = useState<Record<string, string>[]>([]),
+  const [livePartners, setLivePartners] = useState<Record<string, string>[]>([]),
     [settings, setSettings] = useState<Record<string, string | number>>({});
   useEffect(() => {
     if (localStorage.getItem("skeptic-language") === "en") setLang("en");
     void Promise.all([
-      supabase
-        .from("team_members")
-        .select("*")
-        .eq("is_visible", true)
-        .order("sort_order"),
       supabase
         .from("partners")
         .select("*")
         .eq("is_visible", true)
         .order("sort_order"),
       supabase.from("site_settings").select("*").single(),
-    ]).then(([t, p, s]) => {
-      setLiveTeam((t.data || []) as Record<string, string>[]);
+    ]).then(([p, s]) => {
       setLivePartners((p.data || []) as Record<string, string>[]);
       setSettings(s.data || {});
     });
   }, []);
   const lt = lang === "lt";
-  const toggle = () => {
-    const next = lt ? "en" : "lt";
-    setLang(next);
-    localStorage.setItem("skeptic-language", next);
-  };
   return (
     <main className="about-page">
       <PageTracker path="/apie-mus" />
@@ -145,61 +109,6 @@ export default function AboutPage() {
             ? "Rodome tik dokumentais pagrįstus organizacijos rodiklius. Augant veikloms, šią skiltį papildysime dalyvių, šalių ir mokymų rezultatais."
             : "We publish only figures supported by organisational records. As our work grows, this section will include participant, country and training outcomes."}
         </p>
-      </section>
-      <section className="team-section">
-        <div className="team-head">
-          <div className="section-label light">
-            [ {lt ? "KOMANDA" : "TEAM"} ]
-          </div>
-          <h2>
-            {lt ? (
-              <>
-                Žmonės, kurie
-                <br />
-                <em>paverčia idėjas veikla.</em>
-              </>
-            ) : (
-              <>
-                People who turn
-                <br />
-                <em>ideas into action.</em>
-              </>
-            )}
-          </h2>
-        </div>
-        <div className="team-grid">
-          {(liveTeam.length
-            ? liveTeam
-            : team.map((x) => ({
-                name: x.name,
-                role_lt: x.role.lt,
-                role_en: x.role.en,
-                bio_lt: x.text.lt,
-                bio_en: x.text.en,
-                image_url: "",
-              }))
-          ).map((person) => (
-            <article key={person.name}>
-              {person.image_url ? (
-                <img
-                  className="team-avatar team-photo"
-                  src={person.image_url}
-                  alt={person.name}
-                />
-              ) : (
-                <div className="team-avatar">
-                  {person.name
-                    .split(" ")
-                    .map((x) => x[0])
-                    .join("")}
-                </div>
-              )}
-              <small>{person[`role_${lang}`]}</small>
-              <h3>{person.name}</h3>
-              <p>{person[`bio_${lang}`]}</p>
-            </article>
-          ))}
-        </div>
       </section>
       <section className="portfolio-section">
         <div>
